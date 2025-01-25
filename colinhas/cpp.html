@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linguagem C++ - Colinha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        section {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Espaçamento entre as colunas */
+        }
+        div {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            flex: 0 1 calc(50% - 20px); /* Duas colunas, considerando o gap */
+            box-sizing: border-box;
+        }
+        h1, h2, h3 {
+            margin: 0 0 10px;
+        }
+        p {
+            margin: 5px 0;
+        }
+        code {
+            display: block;
+            background: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Linguagem C++ - <code>#include &lt;bits/stdc++.h&gt;</code></h1>
+    <section>
+        <div>
+            <h2>Manipulação de Strings</h2>
+            <div>
+                <h3>Comprimento da String</h3>
+                <p>Obtém o comprimento de uma string usando o método <code>.length()</code>.</p>
+                <code>
+                    std::string str = "Exemplo";<br>
+                    int len = str.length();
+                </code>
+            </div>
+            <div>
+                <h3>Concatenar Strings</h3>
+                <p>Concatena duas strings usando o operador <code>+</code> ou o método <code>.append()</code>.</p>
+                <code>
+                    std::string str1 = "Olá, ";<br>
+                    std::string str2 = "mundo!";<br>
+                    std::string result = str1 + str2;<br>
+                    // ou<br>
+                    result.append(str2);
+                </code>
+            </div>
+            <div>
+                <h3>Comparar Strings</h3>
+                <p>Compara duas strings com o operador <code>==</code> ou o método <code>.compare()</code>.</p>
+                <code>
+                    if (str1 == str2) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;// são iguais<br>
+                    }<br>
+                    int result = str1.compare(str2); // retorna 0 se forem iguais
+                </code>
+            </div>
+            <div>
+                <h3>Encontrar Substring</h3>
+                <p>Encontra a posição da primeira ocorrência de uma substring.</p>
+                <code>
+                    std::string str = "Olá, mundo!";<br>
+                    size_t pos = str.find("mundo"); // pos = 5
+                </code>
+            </div>
+            <div>
+                <h3>Encontrar Substring (Reversa)</h3>
+                <p>Encontra a posição da última ocorrência de uma substring.</p>
+                <code>
+                    size_t pos = str.rfind("o"); // pos = 7
+                </code>
+            </div>
+            <div>
+                <h3>Contar quantidade de vezes que um elemento aparece em um array</h3>
+                <code>
+                        using namespace std
+                        int main() {
+                            vector<int> vec = {1, 2, 2, 3, 2, 4, 5};
+                            int count = count(vec.begin(), vec.end(), 2);
+                            cout << "O número 2 aparece " << count << " vezes no vetor." << std::endl;
+                            return 0;
+                        }
+                        
+                </code>
+            </div>
+        </div>
+
+        <div>
+            <h2>Funções Matemáticas</h2>
+            <div>
+                <h3>pow()</h3>
+                <p>Calcula a potência de um número.</p>
+                <code>
+                    double result = pow(2, 3); // result = 8
+                </code>
+            </div>
+            <div>
+                <h3>sqrt()</h3>
+                <p>Calcula a raiz quadrada de um número.</p>
+                <code>
+                    double result = sqrt(16); // result = 4
+                </code>
+            </div>
+            <div>
+                <h3>min()</h3>
+                <p>Retorna o menor valor entre dois números.</p>
+                <code>
+                    int menor = min(10, 5); // menor = 5
+                </code>
+            </div>
+            <div>
+                <h3>max()</h3>
+                <p>Retorna o maior valor entre dois números.</p>
+                <code>
+                    int maior = max(10, 5); // maior = 10
+                </code>
+            </div>
+            <div>
+                <h3>swap()</h3>
+                <p>Troca os valores de duas variáveis.</p>
+                <code>
+                    int a = 10, b = 20;<br>
+                    std::swap(a, b); // a = 20, b = 10
+                </code>
+            </div>
+            <div>
+                <h3>gcd()</h3>
+                <p>Calcula o máximo divisor comum entre dois números.</p>
+                <code>
+                    int result = std::__gcd(8, 12); // result = 4
+                </code>
+            </div>
+            <div>
+                <h3>toupper()</h3>
+                <p>Converte um caractere para maiúscula.</p>
+                <code>
+                    char upper = toupper('a'); // upper = 'A'
+                </code>
+            </div>
+            <div>
+                <h3>tolower()</h3>
+                <p>Converte um caractere para minúscula.</p>
+                <code>
+                    char lower = tolower('A'); // lower = 'a'
+                </code>
+            </div>
+            <div>
+                <h3>floor()</h3>
+                <p>Arredonda um número para baixo.</p>
+                <code>
+                    double result = floor(3.7); // result = 3
+                </code>
+            </div>
+            <div>
+                <h3>ceil()</h3>
+                <p>Arredonda um número para cima.</p>
+                <code>
+                    double result = ceil(3.2); // result = 4
+                </code>
+            </div>
+        </div>
+        
+        <div>
+            <h2>Estruturas de Dados Comuns</h2>
+            <div>
+                <h3>Vector</h3>
+                <p>Estrutura de dados dinâmica que permite adicionar e acessar elementos facilmente.</p>
+                <code>
+                    std::vector<int> vec;<br>
+                    vec.push_back(10);  // adiciona 10 ao final<br>
+                    int x = vec[0];     // acessa o primeiro elemento
+                </code>
+            </div>
+            <div>
+                <h3>Map</h3>
+                <p>Estrutura de dados chave-valor, onde cada chave é única.</p>
+                <code>
+                    std::map<std::string, int> idade;<br>
+                    idade["Alice"] = 25;<br>
+                    int idadeAlice = idade["Alice"];
+                </code>
+            </div>
+        </div>
+        <div>
+            <h2>Algoritmos de Ordenação</h2>
+            <div>
+                <h3>Sort (STL)</h3>
+                <p>Usa a função <code>std::sort</code> para ordenar elementos em um container.</p>
+                <code>
+                    std::vector<int> vec = {3, 1, 4, 1, 5};<br>
+                    std::sort(vec.begin(), vec.end());<br>
+                    // vec agora está ordenado
+                </code>
+            </div>
+            <div>
+                <h3>Reverse (STL)</h3>
+                <p>Inverte a ordem dos elementos em um container.</p>
+                <code>
+                    std::reverse(vec.begin(), vec.end());
+                </code>
+            </div>
+        </div>
+        <div>
+            <h2>Busca</h2>
+            <div>
+                <h3>Busca Linear</h3>
+                <p>Busca um elemento em um vetor verificando cada posição até encontrá-lo.</p>
+                <code>
+                    int linearSearch(const std::vector<int>& vec, int x) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;for (int i = 0; i < vec.size(); i++) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (vec[i] == x)<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return i;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return -1;<br>
+                    }
+                </code>
+            </div>
+
+            <div>
+                <h3>Busca Binária</h3>
+                <p>Procura um elemento em um vetor ordenado usando a função <code>std::binary_search</code>.</p>
+                <code>
+                    bool found = std::binary_search(vec.begin(), vec.end(), x);
+                </code>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

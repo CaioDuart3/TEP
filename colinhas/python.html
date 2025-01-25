@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linguagem Python - Colinha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        section {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Espaçamento entre as colunas */
+        }
+        div {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            flex: 0 1 calc(50% - 20px); /* Duas colunas, considerando o gap */
+            box-sizing: border-box;
+        }
+        h1, h2, h3 {
+            margin: 0 0 10px;
+        }
+        p {
+            margin: 5px 0;
+        }
+        code {
+            display: block;
+            background: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 10px;
+            margin: 10px 0;
+            white-space: pre-wrap; /* Para manter a formatação */
+        }
+    </style>
+</head>
+<body>
+    <h1>Linguagem Python</h1>
+    <section>
+    
+
+        <div>
+            <h2>Funções Úteis em Programação Competitiva</h2>
+        
+            <div>
+                <h3>Zip (Método <code>zip</code>)</h3>
+                <p>Usa a função <code>zip</code> para combinar dois ou mais iteráveis em uma lista de tuplas.</p>
+                <pre><code>
+                    a = [1, 2, 3]
+                    b = ['a', 'b', 'c']
+                    zipped = list(zip(a, b))  # [(1, 'a'), (2, 'b'), (3, 'c')]
+                </code></pre>
+            </div>
+        
+            <div>
+                <h3>Counter (Classe <code>collections.Counter</code>)</h3>
+                <p>A classe <code>Counter</code> conta a frequência de elementos em um iterável.</p>
+                <pre><code>from collections import Counter
+        
+        data = ['a', 'b', 'c', 'a', 'b', 'a']
+        counter = Counter(data)  # Counter({'a': 3, 'b': 2, 'c': 1})</code></pre>
+            </div>
+        
+            <div>
+                <h3>Most Common (Método <code>most_common</code>)</h3>
+                <p>Retorna as n entradas mais comuns de um <code>Counter</code>.</p>
+                <pre><code>most_common_items = counter.most_common(2)  # [('a', 3), ('b', 2)]</code></pre>
+            </div>
+        
+            <div>
+                <h3>Defaultdict (Classe <code>collections.defaultdict</code>)</h3>
+                <p>Uma subclasse de <code>dict</code> que fornece um valor padrão para chaves inexistentes.</p>
+                <pre><code>from collections import defaultdict
+        
+        d = defaultdict(int)  # valor padrão é 0
+        d['a'] += 1  # d['a'] agora é 1</code></pre>
+            </div>
+        
+            <div>
+                <h3>Set (Estrutura <code>set</code>)</h3>
+                <p>Conjuntos permitem operações de união, interseção e diferença, além de remover duplicatas automaticamente.</p>
+                <pre><code>a = {1, 2, 3}
+        b = {2, 3, 4}
+        union = a | b  # {1, 2, 3, 4}
+        intersection = a & b  # {2, 3}
+        difference = a - b # {1} </code></pre>
+            </div>
+        
+            <div>
+                <h3>Itertools (Módulo <code>itertools</code>)</h3>
+                <p>Fornece funções para criar iteradores eficientes, como <code>permutations</code> e <code>combinations</code>.</p>
+                <pre><code>import itertools
+        
+        items = [1, 2, 3]
+        perms = list(itertools.permutations(items))  # [(1, 2, 3), (1, 3, 2), ...]</code></pre>
+            </div>
+        
+            <div>
+                <h3>Bisect (Módulo <code>bisect</code>)</h3>
+                <p>Auxilia na busca e inserção em listas ordenadas.</p>
+                <pre><code>import bisect
+        
+        sorted_list = [1, 3, 4, 6]
+        bisect.insort(sorted_list, 5)  # A lista agora será [1, 3, 4, 5, 6]</code></pre>
+            </div>
+        
+            <div>
+                <h3>Heapq (Módulo <code>heapq</code>)</h3>
+                <p>Implementa uma fila de prioridade, permitindo obter os maiores ou menores elementos de forma eficiente.</p>
+                <pre><code>import heapq
+        
+        numbers = [1, 3, 5, 2, 4]
+        smallest = heapq.nsmallest(3, numbers)  # [1, 2, 3]</code></pre>
+            </div>
+        
+            <div>
+                <h3>Math (Módulo <code>math</code>)</h3>
+                <p>Fornece várias funções matemáticas úteis, como <code>gcd</code> e <code>factorial</code>.</p>
+                <pre><code>import math
+        
+        gcd_value = math.gcd(18, 24)  # 6</code></pre>
+            </div>
+        </div>
+
+        <div>
+            <h2>Estruturas de Dados Comuns</h2>
+            <div>
+                <h2>Listas</h2>
+                <p>Listas são estruturas de dados que permitem armazenar múltiplos itens em uma única variável. Elas são mutáveis, o que significa que os elementos podem ser alterados após a criação.</p>
+                
+                <div>
+                    <h3>Criação de uma Lista</h3>
+                    <p>Você pode criar uma lista usando colchetes `[]` ou a função <code>list()</code>.</p>
+                    <pre><code>lista1 = [1, 2, 3, 4]
+            lista2 = list([5, 6, 7, 8])</code></pre>
+                </div>
+                
+                <div>
+                    <h3>Adicionar Elementos</h3>
+                    <p>Para adicionar um elemento ao final de uma lista, use o método <code>.append()</code>. Para adicionar múltiplos elementos, use <code>.extend()</code>.</p>
+                    <pre><code>lista1.append(5)  # Agora lista1 é [1, 2, 3, 4, 5]
+            lista1.extend([6, 7])  # Agora lista1 é [1, 2, 3, 4, 5, 6, 7]</code></pre>
+                </div>
+                
+                <div>
+                    <h3>Inserir Elemento em uma Posição Específica</h3>
+                    <p>Você pode inserir um elemento em uma posição específica usando <code>.insert(index, elemento)</code>.</p>
+                    <pre><code>lista1.insert(2, 'novo')  # Insere 'novo' na posição 2</code></pre>
+                </div>
+                
+                <div>
+                    <h3>Remover Elementos</h3>
+                    <p>Para remover um elemento, você pode usar <code>.remove()</code> para remover pela primeira ocorrência do valor ou <code>.pop()</code> para remover um elemento pelo índice.</p>
+                    <pre><code>lista1.remove(3)  # Remove o primeiro 3
+            elemento = lista1.pop(0)  # Remove e retorna o primeiro elemento</code></pre>
+                </div>
+                
+                <div>
+                    <h3>Acessar Elementos</h3>
+                    <p>Os elementos de uma lista podem ser acessados por meio de índices. O índice começa em 0.</p>
+                    <pre><code>primeiro = lista1[0]  # Acessa o primeiro elemento
+            ultimo = lista1[-1]     # Acessa o último elemento</code></pre>
+                </div>
+                
+                <div>
+                    <h3>Iterar sobre uma Lista</h3>
+                    <p>Você pode usar um loop <code>for</code> para iterar sobre os elementos de uma lista.</p>
+                    <pre><code>for elemento in lista1:
+                print(elemento)</code></pre>
+                </div>
+            </div>
+            
+            <div>
+                <h2>Dicionários</h2>
+                <p>Dicionários são estruturas de dados que armazenam pares chave-valor. Eles são mutáveis, o que significa que você pode alterar os valores associados a chaves existentes.</p>
+                
+                <div>
+                    <h3>Criação de um Dicionário</h3>
+                    <p>Você pode criar um dicionário usando chaves `{}` ou a função <code>dict()</code>.</p>
+                    <pre><code>dicionario = {"nome": "Alice", "idade": 30}
+            dicionario2 = dict(endereco="Rua 123", cidade="São Paulo")</code></pre>
+                </div>
+                
+                <div>
+                    <h3>Acessar Valores</h3>
+                    <p>Os valores em um dicionário podem ser acessados usando suas chaves.</p>
+                    <pre><code>nome = dicionario["nome"]  # Acessa o valor associado à chave "nome"</code></pre>
+                </div>
+                
+                <div>
+                    <h3>Adicionar ou Alterar Elementos</h3>
+                    <p>Você pode adicionar um novo par chave-valor ou alterar o valor de uma chave existente simplesmente atribuindo um valor à chave.</p>
+                    <pre><code>dicionario["altura"] = 1.65  # Adiciona nova chave
+            dicionario["idade"] = 31          # Altera o valor da chave "idade"</code></pre>
+                </div>
+                
+                <div>
+                    <h3>Remover Elementos</h3>
+                    <p>Para remover um par chave-valor, use <code>del</code> ou o método <code>.pop()</code>.</p>
+                    <pre><code>del dicionario["idade"]  # Remove a chave "idade"
+            idade = dicionario.pop("idade", "Chave não encontrada")  # Remove e retorna o valor da chave</code></pre>
+                </div>
+                
+                <div>
+                    <h3>Iterar sobre um Dicionário</h3>
+                    <p>Você pode iterar sobre as chaves, valores ou pares chave-valor de um dicionário usando um loop <code>for</code>.</p>
+                    <pre><code>for chave, valor in dicionario.items():
+                print(chave, valor)</code></pre>
+                </div>
+                
+                <div>
+                    <h3>Verificar a Existência de uma Chave</h3>
+                    <p>Você pode verificar se uma chave está presente no dicionário usando a palavra-chave <code>in</code>.</p>
+                    <pre><code>if "nome" in dicionario:
+                print("A chave 'nome' existe no dicionário")</code></pre>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Manipulação de Strings</h2>
+            <div>
+                <h3>Comprimento da String</h3>
+                <p>Obtém o comprimento de uma string usando a função <code>len()</code>.</p>
+                <pre><code>str = "Exemplo"
+len_str = len(str)</code></pre>
+            </div>
+            <div>
+                <h3>Concatenar Strings</h3>
+                <p>Concatena duas strings usando o operador <code>+</code> ou <code>.join()</code>.</p>
+                <pre><code>str1 = "Olá, "
+str2 = "mundo!"
+result = str1 + str2
+# ou
+result = "".join([str1, str2])</code></pre>
+            </div>
+            <div>
+                <h3>Comparar Strings</h3>
+                <p>Compara duas strings com o operador <code>==</code>.</p>
+                <pre><code>if str1 == str2:
+    # são iguais</code></pre>
+            </div>
+            <div>
+                <h3>Dividir String</h3>
+                <p>Divide uma string em uma lista de substrings usando o método <code>.split()</code>.</p>
+                <pre><code>frase = "Olá mundo em Python"
+palavras = frase.split()  # ['Olá', 'mundo', 'em', 'Python']</code></pre>
+            </div>
+            <div>
+                <h3>Juntar Lista em String</h3>
+                <p>Junta elementos de uma lista em uma única string usando o método <code>.join()</code>.</p>
+                <pre><code>palavras = ["Olá", "mundo", "em", "Python"]
+frase = " ".join(palavras)  # "Olá mundo em Python"</code></pre>
+            </div>
+            <div>
+                <h3>Aplicar Função a Cada Elemento com <code>map()</code></h3>
+                <p>Aplica uma função a cada elemento de uma lista usando <code>map()</code>.</p>
+                <pre><code>numeros = [1, 2, 3, 4]
+quadrados = list(map(lambda x: x**2, numeros))  # [1, 4, 9, 16]</code></pre>
+            </div>
+            <div>
+                <h3>Filtrar Elementos com <code>filter()</code></h3>
+                <p>Filtra elementos de uma lista que atendem a uma condição usando <code>filter()</code>.</p>
+                <pre><code>numeros = [1, 2, 3, 4, 5]
+pares = list(filter(lambda x: x % 2 == 0, numeros))  # [2, 4]</code></pre>
+            </div>
+            <div>
+                <h3>Reduzir uma Lista com <code>reduce()</code></h3>
+                <p>Aplica uma função de acumulação a todos os elementos de uma lista usando <code>reduce()</code>.</p>
+                <pre><code>from functools import reduce
+
+numeros = [1, 2, 3, 4]
+produto = reduce(lambda x, y: x * y, numeros)  # 24</code></pre>
+            </div>
+        </div>
+        <div>
+            <h2>Conjuntos (sets)</h2>
+            <p>Conjuntos são tipos de dados não ordenados em Python, representados por chaves `{}` e que não permitem elementos duplicados. Eles são úteis para operações de união, interseção e diferença.</p>
+            
+            <div>
+                <h3>Criação de um Conjunto</h3>
+                <p>Você pode criar um conjunto usando chaves ou a função <code>set()</code>.</p>
+                <pre><code>conjunto1 = {1, 2, 3, 4}
+        conjunto2 = set([3, 4, 5, 6])</code></pre>
+            </div>
+            
+            <div>
+                <h3>Adicionar Elementos</h3>
+                <p>Para adicionar um elemento a um conjunto, use o método <code>.add()</code>.</p>
+                <pre><code>conjunto1.add(5)  # Agora conjunto1 é {1, 2, 3, 4, 5}</code></pre>
+            </div>
+            
+            <div>
+                <h3>Remover Elementos</h3>
+                <p>Você pode remover um elemento com <code>.remove()</code> ou <code>.discard()</code>. A diferença é que <code>.remove()</code> gera um erro se o elemento não existir.</p>
+                <pre><code>conjunto1.remove(5)  # Remove 5
+        conjunto1.discard(10)  # Não gera erro, mesmo que 10 não esteja presente</code></pre>
+            </div>
+            
+            <div>
+                <h3>Operações com Conjuntos</h3>
+                <p>Os conjuntos suportam operações matemáticas como união, interseção e diferença.</p>
+                <pre><code>uniao = conjunto1 | conjunto2  # União
+        interseccao = conjunto1 & conjunto2  # Interseção
+        diferenca = conjunto1 - conjunto2    # Diferença</code></pre>
+            </div>
+            
+            <div>
+                <h3>Verificar a Existência de um Elemento</h3>
+                <p>Você pode verificar se um elemento está em um conjunto usando a palavra-chave <code>in</code>.</p>
+                <pre><code>if 3 in conjunto1:
+            print("3 está no conjunto")</code></pre>
+            </div>
+        </div>
+        
+        <div>
+            <h2>Busca</h2>
+            <div>
+                <h3>Busca Linear</h3>
+                <p>Busca um elemento em uma lista verificando cada posição até encontrá-lo.</p>
+                <pre><code>def busca_linear(lista, x):
+    for i in range(len(lista)):
+        if lista[i] == x:
+            return i
+    return -1</code></pre>
+            </div>
+            <div>
+                <h3>Busca Binária</h3>
+                <p>Procura um elemento em uma lista ordenada usando a biblioteca <code>bisect</code>.</p>
+                <pre><code>import bisect
+pos = bisect.bisect_left(lista_ordenada, x)
+if pos != len(lista_ordenada) and lista_ordenada[pos] == x:
+    print("Elemento encontrado")
+else:
+    print("Elemento não encontrado")</code></pre>
+            </div>
+        </div>
+        
+        <div>
+            <h2>Algoritmos de Ordenação</h2>
+            <div>
+                <h3>Sort (Método <code>sorted</code>)</h3>
+                <p>Usa a função <code>sorted</code> para ordenar elementos em uma lista.</p>
+                <pre><code>lista = [3, 1, 4, 1, 5]
+lista_ordenada = sorted(lista)  # retorna uma nova lista ordenada</code></pre>
+            </div>
+            <div>
+                <h3>Reverse (Método <code>reverse</code>)</h3>
+                <p>Inverte a ordem dos elementos de uma lista.</p>
+                <pre><code>lista.reverse()</code></pre>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

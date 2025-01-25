@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linguagem C</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 0;
+    }
+    section {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Espaçamento entre as colunas */
+    }
+    div {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 15px;
+        flex: 0 1 calc(50% - 20px); /* Duas colunas, considerando o gap */
+        box-sizing: border-box;
+    }
+    h1, h2, h3 {
+        margin: 0 0 10px;
+    }
+    p {
+        margin: 5px 0;
+    }
+    code {
+        display: block;
+        background: #f9f9f9;
+        border: 1px solid #eee;
+        padding: 10px;
+        margin: 10px 0;
+    }
+</style>
+<body>
+    <h1>Linguagem C</h1>
+    <pre>
+        <code>
+        #include &lt;string.h&gt;
+        #include &lt;stdlib.h&gt;
+        </code>
+    </pre>
+
+    <section>
+        <div>
+            <h2>Manipulação de Strings</h2>
+                <div>
+                        <h3>strlen</h3>
+                        <p>Obtém o comprimento de uma string.</p>
+                        <code>int len = strlen(str);</code>
+                </div>
+            
+                <div>
+                    <h3>strcpy e strncpy</h3>
+                    <p>strcpy copia uma string para outra; strncpy copia até n caracteres.</p>
+                    <code>
+                        strcpy(dest, src);<br>
+                        strncpy(dest, src, n);  // até n caracteres
+                    </code>
+                </div>
+            
+                <div>
+                    <h3>strcmp</h3>
+                        <p>Compara duas strings e retorna 0 se forem iguais.</p>
+                        <code>int cmp = strcmp(str1, str2);</code>
+                </div>
+            
+                <div>
+                    <h3>strcat e strncat</h3>
+                    <p>strcat concatena uma string ao final de outra; strncat concatena até n caracteres.</p>
+                    <code>
+                        strcat(dest, src);<br>
+                        strncat(dest, src, n);
+                    </code>
+                </div>
+            
+        </div>
+            <div>
+                <h2>Estruturas de Dados Comuns</h2>
+                <div>
+                    <h3>Array</h3>
+                    <p>Declara um array e itera sobre seus elementos.</p>
+                    <code>
+                        int arr[100];<br>
+                        for (int i = 0; i < n; i++) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;// processa arr[i]<br>
+                        }
+                    </code>
+                </div>
+                <div>
+                    <h3>Linked List</h3>
+                    <p>Estrutura de nó para uma lista encadeada simples e função para inserir um novo nó no início.</p>
+                    <code>
+                        struct Node {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;int data;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;struct Node* next;<br>
+                        };<br><br>
+                        struct Node* head = NULL;<br>
+                        void insert(int new_data) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;struct Node* new_node = (struct Node*) malloc(sizeof(struct Node));<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;new_node->data = new_data;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;new_node->next = head;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;head = new_node;<br>
+                        }
+                    </code>
+                </div>
+            </div>
+
+        <div>
+            
+            <h2>Algoritmos de Ordenação</h2>
+                <div>
+                    <h3>Bubble Sort</h3>
+                    <p>Algoritmo de ordenação que compara e troca elementos adjacentes.</p>
+                    <code>
+                        void bubbleSort(int arr[], int n) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;for (int i = 0; i < n - 1; i++) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (int j = 0; j < n - i - 1; j++) {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[j] > arr[j + 1]) {<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int temp = arr[j];<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arr[j] = arr[j + 1];<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arr[j + 1] = temp;<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </code>
+                </div>
+            
+                <div>
+                    <h3>Quick Sort</h3>
+                    <p>Algoritmo de ordenação baseado em divisão e conquista, com uma função de particionamento.</p>
+                    <code>
+                        int partition(int arr[], int low, int high) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;int pivot = arr[high];<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;int i = (low - 1);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;for (int j = low; j < high; j++) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[j] < pivot) {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i++;<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int temp = arr[i];<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arr[i] = arr[j];<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arr[j] = temp;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;int temp = arr[i + 1];<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;arr[i + 1] = arr[high];<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;arr[high] = temp;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;return (i + 1);<br>
+                        }<br><br>
+            
+                        void quickSort(int arr[], int low, int high) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;if (low < high) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int pi = partition(arr, low, high);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quickSort(arr, low, pi - 1);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quickSort(arr, pi + 1, high);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </code>
+                </div>
+            
+        </div>
+        <div>
+            <h2>Busca</h2>
+                <div>
+            
+                    <h3>Busca Linear</h3>
+                    <p>Busca um elemento em um array, verificando cada posição até encontrar.</p>
+                    <code>
+                        int linearSearch(int arr[], int n, int x) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;for (int i = 0; i < n; i++) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[i] == x)<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return i;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;return -1;<br>
+                        }
+                    </code>
+                </div>
+            
+                <div>
+                    <h3>Busca Binária</h3>
+                    <p>Procura um elemento em um array ordenado dividindo-o em duas partes.</p>
+                    <code>
+                        int binarySearch(int arr[], int l, int r, int x) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;while (l <= r) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int m = l + (r - l) / 2;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[m] == x) return m;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (arr[m] < x) l = m + 1;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+                                else r = m - 1;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;return -1;<br>
+                        }
+                    </code>
+                </div>
+        </div>
+    </section>
+</body>
+</html>
