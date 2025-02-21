@@ -21,3 +21,13 @@ int main(){
     cout << filter(texto,filtro) << endl;
     return 0;
 }
+/*
+digite o filtro a ser aplicado:
+for
+
+digite o texto a receber o filtro:
+a força é foge rápido
+
+resultado:
+forforo
+*/
